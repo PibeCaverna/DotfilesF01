@@ -30,7 +30,7 @@ cd /usr/src/     # cds to /usr/src/ to install suckless utilities
 
 for i in "${!suckdep[@]}"
 do
-  apt-get install -y "$i"
+  apt-get install -y "${suckdep[$i]}"
 done
 
 #Clones and install suckless utilities
