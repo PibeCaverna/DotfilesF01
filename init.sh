@@ -17,10 +17,10 @@ suckdep[3]="libx11-dev"
 suckdep[4]="libxft-dev"
 suckdep[5]="libxinerama-dev"
 
-suckless["st"]="git@github.com:PibeCaverna/FST.git" 
-suckless["slstatus"]="git@github.com:PibeCaverna/FSLSTATUS.git" 
-suckless["dmenu"]="git@github.com:PibeCaverna/FDMENU.git" 
-suckless["dwm"]="git@github.com:PibeCaverna/FDWM.git"
+suckless["st"]="https://github.com/PibeCaverna/FST" 
+suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
+suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU" 
+suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
 
 
 rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
