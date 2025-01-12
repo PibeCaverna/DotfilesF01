@@ -1,28 +1,42 @@
 #!/usr/bin/bash
 
-rm -r /usr/src/* #Vacia src, habria que buscar alguna forma de que sea solo una flag
 
-maindir=$(pwd)   #Toma el directorio desde el cual se corre el script, así se puede volver
+#Array declarations
 
-#El array que da a todos los repos suckless
-declare -A suckless
-suckless["st"]="https://github.com/PibeCaverna/FST" 
-suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
-suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU" 
-suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
+declare -a suckdep    #Dependencies for suckless software
+declare -A suckless   #Suckless software per se
+
+#Variable and array assignation
+
+maindir=$(pwd)   #takes note of current directory
+
+suckdep=("build-essential","libc6","libfontconfig-dev","libx11-dev","libxft-dev","libxinerama-dev")
+
+suckless["st"]="git@github.com:PibeCaverna/FST.git" 
+suckless["slstatus"]="git@github.com:PibeCaverna/FSLSTATUS.git" 
+suckless["dmenu"]="git@github.com:PibeCaverna/FDMENU.git" 
+suckless["dwm"]="git@github.com:PibeCaverna/FDWM.git"
 
 
-cd /usr/src/ #Va a /usr/src/ donde vamos a tener todas las fuentes
+rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
+cd /usr/src/     # cds to /usr/src/ to install suckless utilities
 
-#Bucle que descarga e instala el software suckless
+#Installs suckless software dependencies
+
+for i in "${!suckdep[@]}"
+do
+  apt-get install -y "$i"
+done
+
+#Clones and install suckless utilities
 for i in "${!suckless[@]}";
 do
-  #git clone "${suckless[$i]}" "$i"
-  #echo "$i" "de" "${suckless[$i]}" "clonado"
+  git clone "${suckless[$i]}" "$i"
+  echo "cloning" "$i" "from" "${suckless[$i]}"
   cd "$i"
   make clean install
   cd ..
-  echo "$i" "instalado"
+  echo "installed" "$i" 
 done
 
 
