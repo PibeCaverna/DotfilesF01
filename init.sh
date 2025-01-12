@@ -23,15 +23,15 @@ suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU"
 suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
 
 
-rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
-cd /usr/src/     # cds to /usr/src/ to install suckless utilities
-
 #Installs suckless software dependencies
 
 for i in "${!suckdep[@]}"
 do
   apt-get install -y "${suckdep[$i]}"
 done
+
+rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
+cd /usr/src/     # cds to /usr/src/ to install suckless utilities
 
 #Clones and install suckless utilities
 for i in "${!suckless[@]}";
@@ -44,7 +44,9 @@ do
   echo "installed" "$i" 
 done
 
-
-#Retorno al directorio principal
+#Returns to main directory
 cd "$maindir"
+
+#Copies .xinitrc to home
+cp .xinitrc ~/
 
