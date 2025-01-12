@@ -11,8 +11,6 @@ suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS"
 suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU" 
 suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
 
-#El array que da al repo de fff
-fff="https://github.com/dylanaraps/fff"
 
 cd /usr/src/ #Va a /usr/src/ donde vamos a tener todas las fuentes
 
@@ -27,10 +25,6 @@ do
   echo "$i" "instalado"
 done
 
-#Bucle que descarga e instala fff
-git clone "$fff" fff
-cd fff
-make PREFIX=/usr/local install
 
 #Retorno al directorio principal
 cd "$maindir"
