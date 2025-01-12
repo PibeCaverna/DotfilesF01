@@ -10,7 +10,12 @@ declare -A suckless   #Suckless software per se
 
 maindir=$(pwd)   #takes note of current directory
 
-suckdep=("build-essential","libc6","libfontconfig-dev","libx11-dev","libxft-dev","libxinerama-dev")
+suckdep[0]="build-essential"
+suckdep[1]="libc6"
+suckdep[2]="libfontconfig-dev"
+suckdep[3]="libx11-dev"
+suckdep[4]="libxft-dev"
+suckdep[5]="libxinerama-dev"
 
 suckless["st"]="git@github.com:PibeCaverna/FST.git" 
 suckless["slstatus"]="git@github.com:PibeCaverna/FSLSTATUS.git" 
