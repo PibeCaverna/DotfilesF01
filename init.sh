@@ -40,7 +40,7 @@ do
   echo "cloning" "$i" "from" "${suckless[$i]}"
   cd "$i"
   make clean install
-  cd ..
+  cd /usr/src/
   echo "installed" "$i" 
 done
 
