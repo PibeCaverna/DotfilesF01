@@ -22,7 +22,7 @@ suckdep[6]="xinit"
 basepkgs[0]="wget"
 basepkgs[1]="zip"
 basepkgs[2]="unzip"
-basepkgs[3]="nvim"
+basepkgs[3]="neovim"
 basepkgs[4]="lf"
 
 suckless["st"]="https://github.com/PibeCaverna/FST" 
