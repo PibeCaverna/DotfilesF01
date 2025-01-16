@@ -4,6 +4,7 @@
 #Array declarations
 
 declare -a suckdep    #Dependencies for suckless software
+declare -a basepkgs   #Base packages to use
 declare -A suckless   #Suckless software per se
 
 #Variable and array assignation
@@ -16,18 +17,34 @@ suckdep[2]="libfontconfig-dev"
 suckdep[3]="libx11-dev"
 suckdep[4]="libxft-dev"
 suckdep[5]="libxinerama-dev"
+suckdep[6]="xinit"
+
+basepkgs[0]="wget"
+basepkgs[0]="zip"
+basepkgs[0]="unzip"
+basepkgs[1]="nvim"
+basepkgs[2]="lf"
 
 suckless["st"]="https://github.com/PibeCaverna/FST" 
 suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
 suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU" 
 suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
 
+#gets packages up to date
+apt-get -qq update
+apt-get -qq upgrade -y
 
 #Installs suckless software dependencies
 
 for i in "${!suckdep[@]}"
 do
-  apt-get install -y "${suckdep[$i]}"
+  apt-get -qq install -y "${suckdep[$i]}"
+done
+
+#install "basic" packages
+for i in "${!basepkgs[@]}"
+do
+  apt-get -qq install -y "${pasepkgs[$i]}"
 done
 
 rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
