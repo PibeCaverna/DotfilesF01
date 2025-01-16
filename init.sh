@@ -44,7 +44,7 @@ done
 #install "basic" packages
 for i in "${!basepkgs[@]}"
 do
-  apt-get -qq install -y "${pasepkgs[$i]}"
+  apt-get -qq install -y "${basepkgs[$i]}"
 done
 
 rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
