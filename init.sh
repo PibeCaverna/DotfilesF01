@@ -56,10 +56,3 @@ do
   cd /usr/src/
   echo "installed" "$i" 
 done
-
-#Returns to main directory
-cd "$maindir"
-
-#Copies .xinitrc to home
-cp .xinitrc ~/
-
