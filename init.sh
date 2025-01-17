@@ -30,10 +30,6 @@ suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS"
 suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU" 
 suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
 
-#gets packages up to date
-apt-get -qq update
-apt-get -qq upgrade -y
-
 #Installs suckless software dependencies
 
 for i in "${!suckdep[@]}"
