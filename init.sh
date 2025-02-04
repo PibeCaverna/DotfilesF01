@@ -43,6 +43,12 @@ do
   apt-get -qq install -y "${basepkgs[$i]}"
 done
 
+#Installs Hack NerdFont
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip
+unzip -d /usr/share/fonts Hack.zip
+fc-cache -f -v
+
 rm -r /usr/src/* #empties /usr/src/, may change to just run it after a flag
 cd /usr/src/     # cds to /usr/src/ to install suckless utilities
 
