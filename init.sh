@@ -6,6 +6,7 @@
 declare -a suckdep    #Dependencies for suckless software
 declare -a basepkgs   #Base packages to use
 declare -A suckless   #Suckless software per se
+declare -a othrpkgs   #other pachages that I want installed
 
 #Variable and array assignation
 
@@ -29,6 +30,16 @@ suckless["st"]="https://github.com/PibeCaverna/FST"
 suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
 suckless["dmenu"]="https://github.com/PibeCaverna/FDMENU" 
 suckless["dwm"]="https://github.com/PibeCaverna/FDWM"
+
+othrpkgs[0]="gimp"
+othrpkgs[1]="inkscape"
+othrpkgs[2]="sxiv"
+othrpkgs[3]="vlc"
+othrpkgs[4]="blender"
+othrpkgs[5]="libreoffice"
+othrpkgs[6]="texlive-full"
+othrpkgs[7]="zathura"
+othepkgs[8]="tmux"
 
 #Installs suckless software dependencies
 
@@ -62,3 +73,12 @@ do
   cd /usr/src/
   echo "installed" "$i" 
 done
+
+#installs some nice packages
+
+for i in "${!othrpkgs[@]}"
+do 
+  apt-get -qq install -y "${othrpkgs[$i]}"
+done
+
+#then you should be done, for custom configs just move everything in the config folder to your home's .config
