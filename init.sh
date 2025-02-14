@@ -1,6 +1,4 @@
 #!/usr/bin/bash
-
-
 #Array declarations
 
 declare -a suckdep    #Dependencies for suckless software
@@ -25,6 +23,7 @@ basepkgs[1]="zip"
 basepkgs[2]="unzip"
 basepkgs[3]="neovim"
 basepkgs[4]="lf"
+basepkgs[5]="curl"
 
 suckless["st"]="https://github.com/PibeCaverna/FST" 
 suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
@@ -80,5 +79,12 @@ for i in "${!othrpkgs[@]}"
 do 
   apt-get -qq install -y "${othrpkgs[$i]}"
 done
+
+#Brave browser install
+
+curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+apt update
+apt install brave-browser
 
 #then you should be done, for custom configs just move everything in the config folder to your home's .config
