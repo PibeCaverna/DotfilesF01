@@ -24,6 +24,7 @@ basepkgs[2]="unzip"
 basepkgs[3]="neovim"
 basepkgs[4]="lf"
 basepkgs[5]="curl"
+basepkgs[6]="xclip"
 
 suckless["st"]="https://github.com/PibeCaverna/FST" 
 suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
@@ -73,7 +74,14 @@ do
   echo "installed" "$i" 
 done
 
-#installs some nice packages
+#installs ly display manager
+apt install libpam0g-dev libxcb-xkb-dev
+git clone https://github.com/fairyglade/ly
+cd ly 
+zig build installsystemd
+systemctl enable ly.service
+
+#installs some nice to have packages
 
 for i in "${!othrpkgs[@]}"
 do 
