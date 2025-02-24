@@ -78,6 +78,7 @@ done
 apt install libpam0g-dev libxcb-xkb-dev
 git clone https://github.com/fairyglade/ly
 cd ly 
+zig build
 zig build installsystemd
 systemctl enable ly.service
 
