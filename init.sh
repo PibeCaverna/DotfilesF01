@@ -25,6 +25,7 @@ basepkgs[3]="neovim"
 basepkgs[4]="lf"
 basepkgs[5]="curl"
 basepkgs[6]="xclip"
+basepkgs[7]="zig"
 
 suckless["st"]="https://github.com/PibeCaverna/FST" 
 suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
