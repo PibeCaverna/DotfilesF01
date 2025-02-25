@@ -25,7 +25,6 @@ basepkgs[3]="neovim"
 basepkgs[4]="lf"
 basepkgs[5]="curl"
 basepkgs[6]="xclip"
-basepkgs[7]="zig"
 
 suckless["st"]="https://github.com/PibeCaverna/FST" 
 suckless["slstatus"]="https://github.com/PibeCaverna/FSLSTATUS" 
@@ -79,8 +78,10 @@ done
 apt install libpam0g-dev libxcb-xkb-dev
 git clone https://github.com/fairyglade/ly
 cd ly 
-zig build
-zig build installsystemd
+wget https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3356+5e20e9b44.tar.xz
+tar xf zig-linux-x86_64-0.14.0-dev.3356+5e20e9b44.tar.xz 
+./zig-linux-x86_64-0.14.0-dev.3356+5e20e9b44/zig build
+./zig-linux-x86_64-0.14.0-dev.3356+5e20e9b44/zig build installsystemd
 systemctl enable ly.service
 
 #installs some nice to have packages
